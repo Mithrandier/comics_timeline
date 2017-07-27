@@ -1,0 +1,9 @@
+#issues_index
+  - @issues.group_by(&:release).each do |release, issues|
+    = release_timestamp(release)
+    br
+    - issues.each do |issue|
+      .issue
+        = link_to issue.details_url, class: 'issue-cover', target: '_blank' do
+          = image_tag(issue.cover_url, title: issue.title)
+    hr
